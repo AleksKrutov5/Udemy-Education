@@ -4,7 +4,6 @@ window.addEventListener('DOMContentLoaded', () =>{
     const tabs = document.querySelectorAll('.tabheader__item'),
           tabsContent = document.querySelectorAll('.tabcontent'),
           tabsParent = document.querySelector('.tabheader__items');
-    console.log(tabsParent);
     function hideTabContent(){
         tabsContent.forEach(item => {
             item.style.display = 'none';
@@ -101,7 +100,61 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     setClock('.timer', deadLine);
 
+////////////// Работа с модельным окном
+
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'),
+          modalCloseBtn = document.querySelector('[data-close]');
+
+    function openModal() {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+        clearInterval(modalTimerId);
+    };
+    
+    
+    modalTrigger.forEach(btn => {
+    btn.addEventListener('click', openModal);
+    });
+
+
+
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; 
+    }
+   
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        };
+    });
+
+    document.addEventListener('keydown', (e) => {                       ///// Вешаем обработчик событий на клавишу ESP по закрытию модального окна
+        if (e.code === "Escape" && modal.classList.contains('show')){
+            closeModal();
+        }
+    });
+
+    const modalTimerId = setTimeout(openModal, 30000);
+
+    function showModalByScroll() {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);                /// При выполнении функции одного раза, удаляется обработчик событий
+        }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);                           /// При промотке пользователем страницы до конца, вызываем модальное окно
+
 });
+
+
+
 
 
 
