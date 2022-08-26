@@ -277,8 +277,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Sliders
 
-    const slides = document.querySelectorAll('.offer__slide'),
-            prev = ducument.querySelector()
 });
 
 
