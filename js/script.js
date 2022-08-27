@@ -275,7 +275,8 @@ window.addEventListener('DOMContentLoaded', function() {
         }, 4000);
     }
 
-    // Sliders
+    // Sliders Work
+    
 
 });
 
