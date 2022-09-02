@@ -417,5 +417,4 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
+// Calculator
