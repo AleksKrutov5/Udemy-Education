@@ -215,7 +215,6 @@ function cards() {
         });
     });
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
 
 /***/ }),
@@ -270,7 +269,6 @@ function forms() {
             form.insertAdjacentElement("afterend", statusMessage);
 
             const formData = new FormData(form);
-
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
             postData("http://localhost:3000/requests", json)
