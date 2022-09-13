@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
     timer('.timer', '2022-06-11');
     cards();
     calc();
-    forms('forms', modalTimerId);
+    forms('form', modalTimerId);
     slider({
         container: '.offer__slider',
         slide: '.offer__slide',

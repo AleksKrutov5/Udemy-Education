@@ -33,7 +33,7 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('show')) {
+        if (e.code === "Escape" && modal.classList.contains('show')) { 
             closeModal(modalSelector);
         }
     });
@@ -48,9 +48,5 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
 }
 
 export default modal;
-export {
-    closeModal
-};
-export {
-    openModal
-};
+export {closeModal};
+export {openModal};
